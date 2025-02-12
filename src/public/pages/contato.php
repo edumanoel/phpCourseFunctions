@@ -1,5 +1,13 @@
 <h2>Contato</h2>
 
+<?php
+$flash = getFlashMessage();
+if ($flash) {
+    echo "<div class=\"alert alert-{$flash['type']}\" role=\"alert\">";
+    echo $flash['message'];
+    echo "</div>";
+} ?>
+
 <div class="container">
     <form action="pages/forms/contato.php" method="post">
         <div class="form-group">

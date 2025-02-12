@@ -21,6 +21,15 @@ function validate(array $fields)
         }
         $validate[$field] = filter_var(requestType()[$field], $filter);
     }
-
     return (object) $validate;
+}
+
+function isEmpty(array $fields)
+{
+    foreach ($fields as $field) {
+        if (empty(requestType()[$field])) {
+            return true;
+        }
+    }
+    return false;
 }

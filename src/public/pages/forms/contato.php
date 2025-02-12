@@ -2,7 +2,11 @@
 
 require "../../../bootstrap.php";
 
-// dd($_POST);
+if (isEmpty(['name', 'email', 'subject', 'message'])) {
+    setFlashMessage('danger', 'Todos os campos são obrigatórios');
+    header('Location: /?page=contato');
+    die();
+}
 
 $validate = validate([
     'name' => 'string',

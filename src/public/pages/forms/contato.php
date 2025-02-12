@@ -4,7 +4,7 @@ require "../../../bootstrap.php";
 
 if (isEmpty(['name', 'email', 'subject', 'message'])) {
     setFlashMessage('danger', 'Todos os campos são obrigatórios');
-    header('Location: /?page=contato');
+    redirct('contato');
     die();
 }
 

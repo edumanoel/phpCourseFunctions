@@ -19,7 +19,7 @@ function validate(array $fields)
                 $filter = FILTER_SANITIZE_STRING;
                 break;
         }
-        $validate[$field] = filter_var(requestType()[$field], $filter);
+        $validate[$field] = filter_var(request()[$field], $filter);
     }
     return (object) $validate;
 }
@@ -27,7 +27,7 @@ function validate(array $fields)
 function isEmpty(array $fields)
 {
     foreach ($fields as $field) {
-        if (empty(requestType()[$field])) {
+        if (empty(request()[$field])) {
             return true;
         }
     }

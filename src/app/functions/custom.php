@@ -8,11 +8,21 @@ function dd($data)
     die();
 }
 
-function requestType()
+function request()
 {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         return $_POST;
     } else {
         return $_GET;
     }
+}
+
+function redirct($target)
+{
+    return header("location: /?page={$target}");
+}
+
+function redirctToHome()
+{
+    return header("location: /");
 }

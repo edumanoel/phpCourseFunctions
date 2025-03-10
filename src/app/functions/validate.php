@@ -21,7 +21,7 @@ function validate(array $fields)
         }
         $validate[$field] = filter_var(request()[$field], $filter);
     }
-    return (object) $validate;
+    return $validate;
 }
 
 function isEmpty(array $fields)

@@ -1,6 +1,6 @@
 <?php
 
-function setFlashMessage($type, $message)
+function setFlashMessage($message, $type = 'danger' )
 {
     $_SESSION['flash'] = [
         'type' => $type,

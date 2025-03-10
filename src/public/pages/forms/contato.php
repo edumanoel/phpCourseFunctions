@@ -3,7 +3,7 @@
 require "../../../bootstrap.php";
 
 if (isEmpty(['name', 'email', 'subject', 'message'])) {
-    setFlashMessage('danger', 'Todos os campos são obrigatórios');
+    setFlashMessage('Todos os campos são obrigatórios');
     redirct('contato');
     die();
 }
@@ -15,7 +15,10 @@ $validate = validate([
     'message' => 'string'
 ]);
 
-echo $validate->name . "<br />";
-echo $validate->email . "<br />";
-echo $validate->subject . "<br />";
-echo $validate->message . "<br />";
+if (send($validate)) {
+    setFlashMessage('Mensagem enviada com sucesso', 'success');
+    redirct('contato');
+} else {
+    setFlashMessage('Erro ao enviar mensagem');
+    redirct('contato');
+}

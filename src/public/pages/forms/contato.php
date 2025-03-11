@@ -15,10 +15,11 @@ $validate = validate([
     'message' => 'string'
 ]);
 
-if (send($validate)) {
+try {
+    send($validate);
     setFlashMessage('Mensagem enviada com sucesso', 'success');
-    redirct('contato');
-} else {
-    setFlashMessage('Erro ao enviar mensagem');
+} catch (Exception $e) {
+    setFlashMessage($e->getMessage());
+} finally {
     redirct('contato');
 }

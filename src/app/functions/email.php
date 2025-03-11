@@ -6,7 +6,7 @@ function send(array $data)
 {
     $email = new PHPMailer();
     $email->isSMTP();
-    $email->SMTPDebug = 3;
+    $email->SMTPDebug = $_ENV['EMAIL_SMTP_DEBUG'];
     $email->Host = $_ENV['EMAIL_HOST'];
     $email->Port = $_ENV['EMAIL_PORT'];
     $email->SMTPSecure = $_ENV['EMAIL_SMTP_SECURE'];
@@ -22,9 +22,8 @@ function send(array $data)
     $email->msgHTML($data['message']);
     $email->Body  = $data['message'];
     $email->AltBody = 'Use um software de email compatível com HTML para visualizar este conteúdo.';
-    
+
     if (!$email->send()) {
         throw new Exception($email->ErrorInfo);
     }
-    return true;
 }

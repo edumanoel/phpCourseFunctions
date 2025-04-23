@@ -1,6 +1,6 @@
 <?php
 
-require "../../../bootstrap.php";
+require "../../bootstrap.php";
 
 if (isEmpty(['name', 'lastName', 'email', 'password'])) {
     setFlashMessage('Todos os campos são obrigatórios');

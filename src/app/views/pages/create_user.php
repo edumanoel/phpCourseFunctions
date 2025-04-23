@@ -1,15 +1,11 @@
 <h2>Cadastrar Usuário</h2>
 
-<?php
-$flash = getFlashMessage();
-if ($flash) {
-    echo "<div class=\"alert alert-{$flash['type']}\" role=\"alert\">";
-    echo $flash['message'];
-    echo "</div>";
-} ?>
+<?php 
+    include '../app/views/fragments/flashMessage.php';
+?>
 
 <div class="container">
-    <form action="pages/forms/create_user.php" method="post">
+    <form action="actions/create_user.php" method="post">
         <div class="form-group">
             <label for="name">Nome</label>
             <input type="text" class="form-control" id="name" name="name" placeholder="Digite seu nome">
@@ -26,7 +22,7 @@ if ($flash) {
             <label for="password">Senha</label>
             <input type="password" class="form-control" id="password" name="password" placeholder="Digite sua senha">
         </div>
-        
+
         <button type="submit" class="btn btn-primary">Cadastrar</button>
     </form>
 </div>
